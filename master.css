@@ -1,0 +1,26 @@
+.addBook {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+}
+
+
+.container {
+    background-color: blueviolet;
+    display: flex;
+    margin-top: 30px;
+    flex-wrap: wrap;
+}
+
+#yourBook {
+    background-color: hotpink;
+    padding: 20px;
+    border: 10px solid pink;
+    margin: 10px;
+}
+
+.read-it-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
