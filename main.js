@@ -10,9 +10,10 @@ class Book {
 let bookID = 0;
 function addBook(Book) {
     bookID++;
-    let container = document.querySelector(".container");
+    let container = document.querySelector(".containerOfBookses");
+    
     container.innerHTML += `
-    <div class="book${bookID}" id="yourBook">
+    <div class="book${bookID}" id="currentBook">
             <h2 class="author-name">Author name</h2>
             <p class="authorName">${Book.author}</p>
 
@@ -27,23 +28,35 @@ function addBook(Book) {
             <button class="delete" id="book${bookID}" onclick="removeBook(this.id)">Delete</button>
     </div> 
     `;
+
 }
 
 function createBook() {
     let authorName = document.getElementById("author").value;
     let bookName = document.getElementById("book").value;
     let readIt = document.getElementById("read").value;
-    if(readIt.checked) {
-        readIt = "checked";
+
+    if(authorName=="" || bookName == "")
+    {
+        alert("Please fill all inputs");
+
     }
-    else {
-        readIt = "unchecked";
+    else{
+        if(readIt.checked) {
+            readIt = "checked";
+        }
+        else {
+            readIt = "unchecked";
+        }
+    
+        const book = new Book(authorName,bookName,readIt);
+        console.log(readIt);
+    
+        addBook(book);
     }
 
-    const book = new Book(authorName,bookName,readIt);
-    console.log(readIt);
+    
 
-    addBook(book);
 }
 
 function removeBook(id) {
